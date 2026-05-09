@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+/* Design Tokens */
+:root {
+  --brand-primary: #6d28d9;
+  --brand-light: #f5f3ff;
+}
+
+/* Base */
+body {
+  @apply bg-white text-slate-900 antialiased;
+  font-feature-settings: "ss01", "ss02", "cv01";
+}
+
+/* Selection */
+::selection {
+  background: var(--brand-primary);
+  color: white;
+}
+
+/* Glass Effect */
+.glass-card {
+  @apply bg-white/60 backdrop-blur-2xl border border-white/30 shadow-xl;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--brand-primary);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5b21b6;
+}
