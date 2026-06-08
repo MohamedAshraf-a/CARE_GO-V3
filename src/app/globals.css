@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
 /* Design Tokens */
-:root {
+/* :root {
   --brand-primary: #6d28d9;
   --brand-light: #f5f3ff;
+} */
+:root{
+  --primary:#6D28D9;
+  --secondary:#8B5CF6;
+  --light:#F8FAFC;
+  --dark:#0F172A;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 /* Base */
 body {
   @apply bg-white text-slate-900 antialiased;

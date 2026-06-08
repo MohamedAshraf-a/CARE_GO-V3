@@ -1,45 +1,169 @@
 "use client";
+
+import { useState } from "react";
 import { motion } from "framer-motion";
 
+import { TeamCard } from "./TeamCard";
+import TeamModal from "@/components/TeamModal";
+import { SupervisorCard } from "@/components/SupervisorCard";
+
 export default function Team() {
+  const [selected, setSelected] = useState(null);
+
+  const supervisor = {
+    name: "Dr. Aly Abd Rabou Aly Daby",
+    image: "/team/dr.png",
+    linkedin: "#",
+    github: "#",
+  };
+
   const members = [
-    { name: "Mohamed Ashraf", role: "AI & Software Lead" },
-    { name: "Team Member 2", role: "Hardware Engineer" },
-    { name: "Team Member 3", role: "IoT Specialist" },
-    { name: "Team Member 4", role: "Robotics Design" },
-    { name: "Team Member 5", role: "Medical Integration" },
+    {
+      name: "Mohamed Ashraf",
+      role: "Frontend Developer (React)",
+      image: "/team/ma.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Ahmed Rady",
+      role: "Ui/Ux Designer",
+      image: "/team/rady.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Abdelrahman Atef",
+      role: "Ai artificial intelligence",
+      image: "/team/abdo.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Abdelrahman Essam",
+      role: "Forntend Developer",
+      image: "/team/hus.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Essam Hisham",
+      role: "Hardware",
+      image: "/team/essam.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Mohamed Sheref",
+      role: "Hardware",
+      image: "/team/sheref.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Youssef Mohamed",
+      role: "Flutter Developer",
+      image: "/team/u.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Mahmoud Ezzat",
+      role: "Flutter Developer",
+      image: "/team/she5.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Mohamed Ezzat",
+      role: "Team Member",
+      image: "/team/default.png",
+      linkedin: "#",
+      github: "#",
+    },
+    {
+      name: "Abdelrahman Magdy",
+      role: "Backend Developer",
+      image: "/team/magdy.png",
+      linkedin: "#",
+      github: "#",
+    },
   ];
 
-  return (
-    <section id="team" className="py-32 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="text-5xl font-black text-slate-900 tracking-tighter"
-          >
-            Project <span className="text-purple-600 italic">Engineers</span>
-          </motion.h2>
-          <p className="text-slate-400 mt-4 font-medium uppercase tracking-widest text-xs">Graduation Project Class of 2026</p>
-        </div>
+  // 🎯 ترتيب احترافي حسب التخصص
+  const roleOrder = {
+    "Ai artificial intelligence": 1,
+    "Backend Developer": 2,
+    "Frontend Developer (React)": 3,
+    "Forntend Developer": 3,
+    "Ui/Ux Designer": 4,
+    "Flutter Developer": 5,
+    "Hardware": 6,
+    "Team Member": 7,
+  };
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {members.map((member, i) => (
-            <motion.div
-              key={i}
-              whileHover={{ y: -10 }}
-              className="group bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 text-center transition-all hover:bg-white hover:shadow-xl hover:shadow-purple-100"
-            >
-              <div className="w-20 h-20 bg-purple-100 rounded-3xl mx-auto mb-6 flex items-center justify-center text-2xl font-bold text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors duration-500">
-                {member.name.split(' ').map(n => n[0]).join('')}
-              </div>
-              <h4 className="font-black text-slate-900 leading-tight">{member.name}</h4>
-              <p className="text-purple-500 text-[10px] font-bold uppercase tracking-widest mt-2">{member.role}</p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+  const sortedMembers = [...members].sort(
+    (a, b) =>
+      (roleOrder[a.role] || 99) - (roleOrder[b.role] || 99)
+  );
+
+  // 🎬 Animation variants
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.12,
+      },
+    },
+  };
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40,
+      scale: 0.9,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.5,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  return (
+    <section id="team" className="py-32 bg-slate-50 overflow-hidden">
+      {/* Supervisor */}
+      <SupervisorCard data={supervisor} onClick={setSelected} />
+
+      {/* Members */}
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 mt-20 px-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true }}
+      >
+        {sortedMembers.map((m, i) => (
+          <motion.div
+            key={i}
+            variants={cardVariants}
+            whileHover={{
+              y: -10,
+              scale: 1.05,
+            }}
+            transition={{ type: "spring", stiffness: 300 }}
+          >
+            <TeamCard member={m} onClick={() => setSelected(m)} />
+          </motion.div>
+        ))}
+      </motion.div>
+
+      {/* Modal */}
+      <TeamModal selected={selected} setSelected={setSelected} />
     </section>
   );
 }

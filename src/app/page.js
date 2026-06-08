@@ -1,20 +1,26 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
-import PatientMonitor from "@/components/PatientMonitor";
+import Applications from "@/components/Applications";
+import Impact from "@/components/Impact";
 import Team from "@/components/Team";
-import Booking from "@/components/Booking";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen selection:bg-purple-100 selection:text-purple-900">
-      <Navbar />
+    <main className="min-h-screen">
+      <Navbar/>
+
       <Hero />
-      <Features />
-      <PatientMonitor />
-      <Team />
-      <Booking />
+
+      <div className="space-y-32">
+        {/* <ProjectOverview /> */}
+        <Features />
+        <Applications />
+        <Impact />
+        <Team/>
+      </div>
+
       <Footer />
     </main>
   );
