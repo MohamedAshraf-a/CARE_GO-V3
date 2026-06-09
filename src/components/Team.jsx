@@ -21,7 +21,7 @@ export default function Team() {
     {
       name: "Mohamed Ashraf",
       role: "Frontend Developer (React)",
-      image: "/team/moh.png",
+      image: "/team/moha.png",
       linkedin: "#",
       github: "#",
     },
