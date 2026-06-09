@@ -42,7 +42,7 @@ export default function Team() {
     {
       name: "Abdelrahman Essam",
       role: "Forntend Developer",
-      image: "/team/hus.png",
+      image: "/team/hussry.png",
       linkedin: "#",
       github: "#",
     },
