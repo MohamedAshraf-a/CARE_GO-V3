@@ -28,7 +28,7 @@ export default function Footer() {
 
           {/* LinkedIn */}
           <a
-            href="https://www.linkedin.com"
+            href="https://www.linkedin.com/in/mohamed-ashraf-99b754317/"
             target="_blank"
             className="p-3 rounded-2xl border border-slate-200 text-slate-600 hover:text-blue-600 hover:border-blue-300 hover:bg-blue-50 transition"
           >
@@ -37,7 +37,7 @@ export default function Footer() {
 
           {/* GitHub */}
           <a
-            href="https://github.com"
+            href="https://github.com/MohamedAshraf-a"
             target="_blank"
             className="p-3 rounded-2xl border border-slate-200 text-slate-600 hover:text-black hover:border-slate-400 hover:bg-slate-100 transition"
           >
@@ -54,7 +54,7 @@ export default function Footer() {
 
           {/* Contact */}
           <a
-            href="mailto:example@gmail.com"
+            href="mailto:pop164412@gmail.com"
             className="p-3 rounded-2xl border border-slate-200 text-slate-600 hover:text-emerald-600 hover:border-emerald-300 hover:bg-emerald-50 transition"
           >
             <EnvelopeIcon className="w-5 h-5" />
