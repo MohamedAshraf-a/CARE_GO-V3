@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+
+import ImpactCard from "@/components/ImpactCard";
+import ImpactModal from "@/components/ImpactModal";
 
 import {
   ShieldCheckIcon,
@@ -10,47 +12,51 @@ import {
   CurrencyDollarIcon,
   HeartIcon,
   CpuChipIcon,
-} from "@heroicons/react/24/outline";
-
-import ImpactCard from "@/components/ImpactCard";
-import ImpactModal from "@/components/ImpactModal";
+  DevicePhoneMobileIcon,
+} from "@heroicons/react/24/solid";
 
 const impacts = [
   {
     icon: ShieldCheckIcon,
-    title: "Reduced Infection Risk",
+    title: "Enhanced Patient Safety",
     description:
-      "Minimizes direct human-to-patient contact by automating routine monitoring, medication delivery, and essential in-room interactions, significantly lowering the risk of cross-contamination and hospital-acquired infections in critical care environments.",
+      "Reduces unnecessary physical interaction while maintaining continuous patient supervision and secure medication access.",
   },
   {
     icon: BoltIcon,
-    title: "Continuous Monitoring",
+    title: "Real-Time Monitoring",
     description:
-      "Enables 24/7 AI-powered surveillance of patient vital signs including heart rate, SpO₂, temperature, and respiratory patterns, ensuring real-time anomaly detection and immediate clinical alerts for faster decision-making.",
+      "Provides instant visibility into patient blood pressure and temperature readings through connected mobile applications and healthcare dashboards.",
   },
   {
     icon: ClockIcon,
-    title: "Faster Response",
+    title: "Faster Medical Response",
     description:
-      "Reduces critical response time by integrating predictive analytics and automated alert systems that detect early physiological deterioration, allowing healthcare providers to intervene before conditions escalate.",
+      "Allows healthcare providers to receive immediate patient updates and respond quickly to changing medical conditions.",
   },
   {
     icon: CurrencyDollarIcon,
-    title: "Lower Operational Costs",
+    title: "Operational Efficiency",
     description:
-      "Optimizes hospital resource utilization by reducing dependency on PPE, minimizing manual labor requirements, and automating repetitive clinical tasks, resulting in significant long-term operational savings.",
+      "Automates repetitive healthcare tasks, reducing staff workload and improving resource utilization within medical facilities.",
   },
   {
     icon: HeartIcon,
-    title: "Improved Patient Care",
+    title: "Improved Patient Experience",
     description:
-      "Enhances overall patient experience and safety through consistent monitoring, reduced human error, and improved communication between patients, caregivers, and medical staff in high-risk environments.",
+      "Enables comfortable communication with doctors through integrated video conferencing and simplifies medication accessibility.",
   },
   {
     icon: CpuChipIcon,
-    title: "Healthcare Automation",
+    title: "Healthcare Digital Transformation",
     description:
-      "Represents a shift toward fully autonomous healthcare systems powered by AI, robotics, and IoT integration, enabling scalable, intelligent, and adaptive medical environments of the future.",
+      "Combines robotics, IoT, telemedicine, cloud computing, and artificial intelligence to modernize healthcare delivery.",
+  },
+  {
+    icon: DevicePhoneMobileIcon,
+    title: "Remote Accessibility",
+    description:
+      "Empowers healthcare professionals to monitor patients, control robot functions, and manage medication access from virtually anywhere.",
   },
 ];
 

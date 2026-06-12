@@ -2,37 +2,64 @@
 
 import { motion } from "framer-motion";
 import {
-  Shield,
+  Smartphone,
   Activity,
-  BrainCircuit,
+  ScanFace,
+  Pill,
   Video,
+  Navigation,
+  Cloud,
+  Wifi,
 } from "lucide-react";
-
 const marketingFeatures = [
-  {
-    title: "Zero-Contact Safety",
-    desc: "Eliminates cross-contamination by handling routine checks automatically, reducing medical staff exposure risks.",
-    size: "col-span-2",
-    icon: Shield,
-  },
-  {
-    title: "Real-Time Bio-Link",
-    desc: "Continuous, non-stop vital telemetry streamed directly to clinician dashboards.",
-    size: "col-span-1",
-    icon: Activity,
-  },
-  {
-    title: "AI-Verified Dispensing",
-    desc: "MobileNetV2 facial recognition ensures secure medication delivery.",
-    size: "col-span-1",
-    icon: BrainCircuit,
-  },
-  {
-    title: "Telemedicine Window",
-    desc: "Live video and audio communication between patients and doctors.",
-    size: "col-span-2",
-    icon: Video,
-  },
+{
+title: "Real-Time Vital Monitoring",
+desc: "Measures patient blood pressure and temperature and instantly synchronizes readings with the mobile application.",
+size: "col-span-2",
+icon: Activity,
+},
+{
+title: "Mobile Healthcare Dashboard",
+desc: "Provides doctors and caregivers with instant access to patient data, robot status, and healthcare records from anywhere.",
+size: "col-span-1",
+icon: Smartphone,
+},
+{
+title: "Facial Recognition Security",
+desc: "Medication drawers open only after secure patient verification using advanced facial recognition technology.",
+size: "col-span-1",
+icon: ScanFace,
+},
+{
+title: "Smart Medication Delivery",
+desc: "Stores and dispenses medications securely through automated smart drawers controlled remotely or through patient authentication.",
+size: "col-span-2",
+icon: Pill,
+},
+{
+title: "Integrated Telemedicine",
+desc: "Built-in tablet supports Zoom meetings and live doctor-patient consultations without requiring physical presence.",
+size: "col-span-2",
+icon: Video,
+},
+{
+title: "Remote Robot Navigation",
+desc: "Medical staff can remotely control robot movement while receiving live visual feedback from the onboard camera.",
+size: "col-span-1",
+icon: Navigation,
+},
+{
+title: "Cloud-Based Control",
+desc: "Enables secure remote operation through a centralized server infrastructure for real-time healthcare management.",
+size: "col-span-1",
+icon: Cloud,
+},
+{
+title: "Bluetooth Backup Mode",
+desc: "Automatically switches to Bluetooth communication when internet connectivity is unavailable, ensuring uninterrupted operation.",
+size: "col-span-1",
+icon: Wifi,
+},
 ];
 
 function AnimatedIcon({ Icon }) {

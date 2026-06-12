@@ -25,30 +25,71 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+
           {/* Badge */}
           <span className="inline-flex px-4 py-2 rounded-full bg-purple-100 text-purple-700 font-semibold mb-6">
             Graduation Project 2025 – 2026
           </span>
 
-          {/* Typing Title */}
+          {/* 🔥 ANIMATED TITLE */}
+          <div className="text-6xl md:text-7xl font-black leading-tight flex items-end gap-2">
+
+            {/* CARE */}
+            <motion.span
+              initial={{ x: -20, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.6 }}
+              className="text-slate-900 tracking-tight"
+            >
+              CARE
+            </motion.span>
+
+            {/* GO animated */}
+            <motion.span
+              initial={{ x: -40, opacity: 0, scale: 0.5 }}
+              animate={{ x: 0, opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+                type: "spring",
+                stiffness: 120,
+              }}
+              className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-violet-600"
+            >
+              GO
+            </motion.span>
+
+          </div>
+
+          {/* Typing Subtitle */}
           <TypingText
             words={[
-              "AI-Powered Medical Care Robot",
-              "Smart Healthcare Assistant",
-              "Future of Remote Patient Care"
+              "Revolutionizing Smart Healthcare Systems",
+              "AI-Powered Patient Monitoring Robot",
+              "Future of Remote Medical Care"
             ]}
-            typingSpeed={70}
+            typingSpeed={65}
             deletingSpeed={40}
             delay={1800}
-            className="text-5xl md:text-7xl font-black leading-tight text-slate-900"
+            className="text-2xl md:text-3xl font-semibold text-purple-600 mt-3"
           />
 
-          {/* Subtitle */}
-          <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-            An intelligent healthcare assistant designed to monitor patients remotely,
-            deliver essential supplies, support telemedicine communication,
-            and reduce infection risks in quarantine environments.
+          {/* 🔥 STRONG DESCRIPTION */}
+          <p className="mt-8 text-slate-600 text-lg leading-relaxed max-w-2xl">
+            CAREGO is an intelligent medical robot designed to transform hospital care.
+            It continuously monitors patient vitals, delivers medication safely, and enables
+            real-time communication between doctors and patients — reducing human error,
+            infection risk, and response time in critical situations.
           </p>
+
+          {/* FEATURES */}
+          <div className="mt-6 flex flex-wrap gap-2 text-sm">
+            <span className="px-3 py-1 bg-white shadow rounded-full">Real-time Vital Monitoring</span>
+            <span className="px-3 py-1 bg-white shadow rounded-full">AI Face Recognition</span>
+            <span className="px-3 py-1 bg-white shadow rounded-full">Remote Control System</span>
+            <span className="px-3 py-1 bg-white shadow rounded-full">Telemedicine Integration</span>
+            <span className="px-3 py-1 bg-white shadow rounded-full">Cloud + Bluetooth Backup</span>
+          </div>
 
           {/* CTA */}
           <div className="mt-10 flex flex-wrap gap-4">
@@ -57,7 +98,7 @@ export default function Hero() {
               href="#overview"
               className="px-8 py-4 rounded-2xl bg-purple-600 text-white font-semibold hover:bg-purple-700 transition"
             >
-              Explore Project
+              Explore System
             </a>
 
             <a
@@ -71,7 +112,7 @@ export default function Hero() {
               href="/booking"
               className="px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-violet-600 text-white font-semibold hover:shadow-[0_15px_40px_rgba(168,85,247,0.45)] hover:scale-[1.02] transition-all duration-300"
             >
-              Book Deployment
+              Request Demo
             </a>
 
           </div>
@@ -81,17 +122,17 @@ export default function Hero() {
 
             <div>
               <h3 className="text-3xl font-black text-purple-600">AI</h3>
-              <p className="text-slate-500">Intelligence</p>
+              <p className="text-slate-500">Medical Intelligence</p>
             </div>
 
             <div>
               <h3 className="text-3xl font-black text-purple-600">IoT</h3>
-              <p className="text-slate-500">Connectivity</p>
+              <p className="text-slate-500">Smart Connectivity</p>
             </div>
 
             <div>
               <h3 className="text-3xl font-black text-purple-600">24/7</h3>
-              <p className="text-slate-500">Monitoring</p>
+              <p className="text-slate-500">Continuous Care</p>
             </div>
 
           </div>
@@ -104,6 +145,7 @@ export default function Hero() {
           transition={{ duration: 1 }}
           className="relative flex justify-center"
         >
+
           {/* Glow */}
           <div className="w-[450px] h-[450px] rounded-full bg-gradient-to-br from-purple-500 to-violet-600 blur-3xl opacity-20 absolute" />
 

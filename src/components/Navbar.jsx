@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const links = [
-  { name: "Overview", href: "#overview" },
+  { name: "Hero", href: "#hero" },
   { name: "Features", href: "#features" },
   { name: "Applications", href: "#applications" },
   { name: "Impact", href: "#impact" },
@@ -16,21 +16,17 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const [active, setActive] = useState("overview");
+  const [active, setActive] = useState("hero");
+  const [scrolled, setScrolled] = useState(false);
   const { scrollYProgress } = useScroll();
 
   const handleScroll = (e, href) => {
     e.preventDefault();
-    document.querySelector(href)?.scrollIntoView({
-      behavior: "smooth",
-    });
+    document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });
     setOpen(false);
   };
 
   useEffect(() => {
-    let lastY = window.scrollY;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -39,7 +35,7 @@ export default function Navbar() {
           }
         });
       },
-      { rootMargin: "-40% 0px -50% 0px" }
+      { threshold: 0.6 }
     );
 
     links.forEach((l) => {
@@ -48,141 +44,110 @@ export default function Navbar() {
     });
 
     const onScroll = () => {
-      const currentY = window.scrollY;
-      setHidden(currentY > lastY && currentY > 100);
-      lastY = currentY;
+      setScrolled(window.scrollY > 30);
     };
 
     window.addEventListener("scroll", onScroll);
 
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (
     <>
-      {/* Scroll bar */}
+      {/* Scroll progress */}
       <motion.div
         style={{ scaleX: scrollYProgress }}
-        className="fixed top-0 left-0 right-0 h-1 bg-purple-600 origin-left z-[60]"
+        className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-purple-500 to-violet-600 origin-left z-[60]"
       />
 
       <motion.header
-        animate={{ y: hidden ? -120 : 0 }}
-        className="fixed top-0 w-full z-50"
+        initial={{ y: -30, opacity: 0 }}
+        animate={{
+          y: 0,
+          opacity: 1,
+        }}
+        className="fixed top-0 w-full z-50 flex justify-center"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-4">
+        {/* 🍏 MORPHING CONTAINER */}
+        <motion.nav
+          animate={{
+            width: scrolled ? "92%" : "100%",
+            marginTop: scrolled ? 12 : 20,
+            borderRadius: scrolled ? 20 : 0,
+            backgroundColor: scrolled
+              ? "rgba(255,255,255,0.65)"
+              : "rgba(255,255,255,0.35)",
+            backdropFilter: "blur(24px)",
+            boxShadow: scrolled
+              ? "0 10px 40px rgba(0,0,0,0.08)"
+              : "none",
+          }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
+          className="
+            flex items-center justify-between
+            px-6 h-16
+            border border-white/30
+          "
+        >
 
-          <nav className="
-            backdrop-blur-2xl bg-white/60
-            border border-white/40
-            rounded-2xl shadow-lg
-          ">
-
-            {/* MAIN BAR */}
-            <div className="h-16 flex items-center justify-between px-4 sm:px-6">
-
-              {/* LOGO */}
-              <div className="flex items-center gap-3">
-                <Image src="/logo.png" width={48} height={48} alt="logo" />
-
-                <div className="leading-tight">
-                  <h1 className="font-black text-sm sm:text-base">
-                    CareGo
-                  </h1>
-                  <p className="text-[10px] sm:text-xs text-slate-500">
-                    AI Robot
-                  </p>
-                </div>
-              </div>
-
-              {/* DESKTOP LINKS */}
-              <div className="hidden md:flex items-center gap-6 lg:gap-8">
-                {links.map((l) => (
-                  <a
-                    key={l.name}
-                    href={l.href}
-                    onClick={(e) => handleScroll(e, l.href)}
-                    className={`
-                      text-sm relative transition
-                      hover:text-purple-600
-                      ${active === l.href.replace("#", "")
-                        ? "text-purple-600"
-                        : "text-slate-700"}
-                    `}
-                  >
-                    {l.name}
-
-                    <span
-                      className={`
-                        absolute left-0 -bottom-1 h-[2px]
-                        bg-purple-600 transition-all duration-300
-                        ${active === l.href.replace("#", "") ? "w-full" : "w-0"}
-                      `}
-                    />
-                  </a>
-                ))}
-              </div>
-
-              {/* DESKTOP CTA */}
-              <div className="hidden md:block">
-                <Link
-                  href="/booking"
-                  className="
-                    px-5 py-2 rounded-xl
-                    bg-gradient-to-r from-purple-600 to-violet-600
-                    text-white text-sm font-semibold
-                    hover:shadow-[0_10px_30px_rgba(168,85,247,0.4)]
-                    transition-all
-                  "
-                >
-                  Booking
-                </Link>
-              </div>
-
-              {/* MOBILE BUTTON */}
-              <button
-                className="md:hidden p-2"
-                onClick={() => setOpen(!open)}
-              >
-                {open ? <X /> : <Menu />}
-              </button>
-
+          {/* LOGO */}
+          <div className="flex items-center gap-3">
+            <Image src="/logo.png" width={42} height={42} alt="logo" />
+            <div className="leading-tight">
+              <h1 className="font-bold text-sm">CareGo</h1>
+              <p className="text-[10px] text-slate-500">AI Medical System</p>
             </div>
+          </div>
 
-            {/* MOBILE MENU */}
-            {open && (
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="md:hidden px-6 pb-6 flex flex-col gap-4"
+          {/* DESKTOP LINKS */}
+          <div className="hidden md:flex items-center gap-8">
+            {links.map((l) => (
+              <a
+                key={l.name}
+                href={l.href}
+                onClick={(e) => handleScroll(e, l.href)}
+                className={`relative text-sm transition ${
+                  active === l.href.replace("#", "")
+                    ? "text-purple-600 font-semibold"
+                    : "text-slate-700"
+                }`}
               >
-                {links.map((l) => (
-                  <a
-                    key={l.name}
-                    href={l.href}
-                    onClick={(e) => handleScroll(e, l.href)}
-                    className="text-sm text-slate-700 hover:text-purple-600 transition"
-                  >
-                    {l.name}
-                  </a>
-                ))}
+                {l.name}
 
-                {/* MOBILE CTA */}
-                <Link
-                  href="/booking"
-                  className="
-                    mt-2 text-center px-5 py-2 rounded-xl
-                    bg-gradient-to-r from-purple-600 to-violet-600
-                    text-white text-sm font-semibold
-                  "
-                >
-                  Booking
-                </Link>
-              </motion.div>
-            )}
+                {/* active indicator dot */}
+                {active === l.href.replace("#", "") && (
+                  <motion.div
+                    layoutId="activeDot"
+                    className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-purple-600"
+                  />
+                )}
+              </a>
+            ))}
+          </div>
 
-          </nav>
-        </div>
+          {/* CTA */}
+          <div className="hidden md:block">
+            <Link
+              href="/booking"
+              className="
+                px-5 py-2 rounded-xl
+                bg-gradient-to-r from-purple-600 to-violet-600
+                text-white text-sm font-semibold
+                hover:scale-105 transition
+              "
+            >
+              Booking
+            </Link>
+          </div>
+
+          {/* MOBILE */}
+          <button className="md:hidden" onClick={() => setOpen(!open)}>
+            {open ? <X /> : <Menu />}
+          </button>
+        </motion.nav>
       </motion.header>
     </>
   );

@@ -17,57 +17,57 @@ import {
 import ApplicationCard from "@/components/ApplicationCard";
 import ApplicationModal from "@/components/ApplicationModal";
 
-const applications = [
-  {
-    title: "Quarantine Wards",
-    icon: ShieldPlus,
-    description:
-      "Enables fully contactless patient management in isolation wards by automating vital monitoring, medication delivery, and routine checks, significantly reducing infection transmission risk for healthcare staff.",
-  },
-  {
-    title: "Infectious Disease Hospitals",
-    icon: Hospital,
-    description:
-      "Assists medical teams with continuous patient surveillance, AI-based alerts for abnormal vitals, and automated task handling to improve response efficiency in high-risk infectious environments.",
-  },
-  {
-    title: "Emergency & Field Hospitals",
-    icon: Ambulance,
-    description:
-      "Provides rapid-deployment robotic support in temporary and disaster medical facilities, ensuring immediate patient monitoring and logistics assistance during crisis situations.",
-  },
-  {
-    title: "Pandemic Response Centers",
-    icon: Stethoscope,
-    description:
-      "Supports large-scale screening operations, remote consultations, and automated patient triage to reduce workload during epidemic outbreaks and public health emergencies.",
-  },
-  {
-    title: "Military Medical Facilities",
-    icon: Building2,
-    description:
-      "Delivers secure and autonomous healthcare support in high-risk and restricted environments, including biohazard zones and remote military operations.",
-  },
-  {
-    title: "Rural Clinics",
-    icon: Users,
-    description:
-      "Bridges healthcare gaps in underserved regions by enabling remote diagnosis support, telemedicine connectivity, and automated patient monitoring systems.",
-  },
-  {
-    title: "Elderly Care Centers",
-    icon: HeartHandshake,
-    description:
-      "Enhances elderly care through continuous health tracking, emergency detection systems, and seamless communication between patients, caregivers, and doctors.",
-  },
-  {
-    title: "Smart Hospitals",
-    icon: Cpu,
-    description:
-      "Integrates with AI-powered hospital ecosystems to enable intelligent automation, predictive analytics, and full digital transformation of healthcare operations.",
-  },
-];
 
+const applications = [
+{
+title: "Smart Hospitals",
+icon: Cpu,
+description:
+"Transforms healthcare operations through intelligent patient monitoring, remote robot control, telemedicine services, and secure medication management integrated into a unified digital ecosystem.",
+},
+{
+title: "Patient Care Rooms",
+icon: Hospital,
+description:
+"Continuously monitors patient temperature and blood pressure while transmitting real-time health data directly to healthcare providers through the mobile application.",
+},
+{
+title: "Isolation & Infectious Disease Wards",
+icon: ShieldPlus,
+description:
+"Reduces unnecessary physical contact by automating patient monitoring and medication access while maintaining direct communication between patients and medical teams.",
+},
+{
+title: "Emergency & Critical Care Units",
+icon: Ambulance,
+description:
+"Provides immediate access to patient vital signs, remote consultations, and rapid healthcare support in high-priority medical environments.",
+},
+{
+title: "Elderly Care Centers",
+icon: HeartHandshake,
+description:
+"Improves quality of life for elderly patients through continuous health monitoring, medication management, and easy communication with caregivers and physicians.",
+},
+{
+title: "Rural & Remote Clinics",
+icon: Users,
+description:
+"Extends healthcare accessibility by enabling telemedicine consultations, remote monitoring, and intelligent robotic assistance in underserved regions.",
+},
+{
+title: "Military & Restricted Facilities",
+icon: Building2,
+description:
+"Provides secure and autonomous healthcare assistance in controlled environments where minimizing direct interaction is critical.",
+},
+{
+title: "Telemedicine Centers",
+icon: Stethoscope,
+description:
+"Allows healthcare professionals to conduct remote consultations through the robot’s integrated tablet, camera, and video conferencing capabilities.",
+},
+];
 export default function Applications() {
   const [selected, setSelected] = useState(null);
 
