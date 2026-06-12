@@ -8,26 +8,19 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
-      <Navbar/>
+    <main className="min-h-screen w-full overflow-x-clip">
+      <Navbar />
 
       <Hero />
 
-      <div className="space-y-32">
-        {/* <ProjectOverview /> */}
+      <div className="space-y-32 w-full overflow-x-clip">
         <Features />
         <Applications />
         <Impact />
-        <Team/>
+        <Team />
       </div>
 
       <Footer />
     </main>
   );
 }
-
-
-
-
-
-

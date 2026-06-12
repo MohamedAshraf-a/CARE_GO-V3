@@ -70,8 +70,8 @@ export default function Team() {
     {
       name: "Mahmoud Ezzat",
       role: "Flutter Developer",
-      image: "/team/she5.png",
-      linkedin: "#",
+      image: "/team/SHE55.png",
+      linkedin: "https://www.linkedin.com/in/mahmoud-elsheikh-31773b3b3?utm_source=share_via&utm_content=profile&utm_medium=member_android",
       github: "#",
     },
     {

@@ -1,50 +1,80 @@
 @import "tailwindcss";
 
-/* Design Tokens */
-/* :root {
-  --brand-primary: #6d28d9;
-  --brand-light: #f5f3ff;
-} */
-:root{
-  --primary:#6D28D9;
-  --secondary:#8B5CF6;
-  --light:#F8FAFC;
-  --dark:#0F172A;
-}
-html {
-  scroll-behavior: smooth;
-}
-/* Base */
-body {
-  @apply bg-white text-slate-900 antialiased;
-  font-feature-settings: "ss01", "ss02", "cv01";
+/* =========================
+   🎨 DESIGN TOKENS
+========================= */
+:root {
+  --primary: #6D28D9;
+  --secondary: #8B5CF6;
 }
 
-/* Selection */
+/* =========================
+   🌐 GLOBAL RESET (FIX OVERFLOW)
+========================= */
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+  position: relative;
+}
+
+#root, main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* =========================
+   BASE FIX
+========================= */
+* {
+  box-sizing: border-box;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================
+   SELECTION
+========================= */
 ::selection {
-  background: var(--brand-primary);
+  background: var(--primary);
   color: white;
 }
 
-/* Glass Effect */
+/* =========================
+   GLASS
+========================= */
 .glass-card {
   @apply bg-white/60 backdrop-blur-2xl border border-white/30 shadow-xl;
 }
 
-/* Scrollbar */
+/* =========================
+   SCROLLBAR
+========================= */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
 ::-webkit-scrollbar-thumb {
-  background: var(--brand-primary);
+  background: var(--primary);
   border-radius: 999px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #5b21b6;
+/* =========================
+   BACKGROUND SAFE FIX
+========================= */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(
+    circle at top,
+    rgba(139, 92, 246, 0.08),
+    transparent 60%
+  );
 }
