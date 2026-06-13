@@ -90,7 +90,6 @@ export default function Team() {
     },
   ];
 
-  // 🎯 ترتيب احترافي حسب التخصص
   const roleOrder = {
     "Ai artificial intelligence": 1,
     "Backend Developer": 2,
@@ -136,6 +135,10 @@ export default function Team() {
 
   return (
     <section id="team" className="py-32 bg-slate-50 overflow-hidden">
+        <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6">
+    Meet The Team
+  </h2>
+
       {/* Supervisor */}
       <SupervisorCard data={supervisor} onClick={setSelected} />
 
