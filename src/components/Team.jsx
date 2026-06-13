@@ -135,7 +135,8 @@ export default function Team() {
 
   return (
     <section id="team" className="py-32 bg-slate-50 overflow-hidden">
-        <h2 className="text-5xl md:text-6xl font-black text-slate-900 mb-6">
+      
+        <h2 className="text-center  text-5xl md:text-6xl font-black text-slate-900 mb-6">
     Meet The Team
   </h2>
 
