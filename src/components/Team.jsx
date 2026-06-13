@@ -20,7 +20,7 @@ export default function Team() {
   const members = [
     {
       name: "Mohamed Ashraf",
-      role: "Frontend Developer (React)",
+      role: "Frontend Developer React(Next.js) ",
       image: "/team/ana.png",
       linkedin: "https://www.linkedin.com/in/mohamed-ashraf-99b754317/",
       github: "https://github.com/MohamedAshraf-a",
@@ -76,8 +76,8 @@ export default function Team() {
     },
     {
       name: "Mohamed Ezzat",
-      role: "Team Member",
-      image: "/team/default.png",
+      role: "Frontend",
+      image: "/team/mor.png",
       linkedin: "#",
       github: "#",
     },
